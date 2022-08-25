@@ -14,6 +14,7 @@ def makingboard():
     for x in range(height):
         board += []
         for y in range(width):
+            rand = r.randint(1,2)
             if x == 0 or x == 10:
                 board[cords] == 1
             else:

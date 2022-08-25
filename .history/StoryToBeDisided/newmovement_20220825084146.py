@@ -11,13 +11,16 @@ def makingboard():
     height, width = 10, 10
     cords = x, y = 0, 0
     board = []
-    for x in range(height):
+    for (x in range(height)):
         board += []
-        for y in range(width):
+        while (y <= width):
+            rand = r.randint(1,2)
             if x == 0 or x == 10:
                 board[cords] == 1
             else:
                 board[cords] = 0
+            y += 1
+        x += 1
 
 def printboard(board):
     word = ""

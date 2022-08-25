@@ -1,23 +1,30 @@
 import random as r
 
-"""
-0 = empty = "  "
-1 = wall = if at 0 or max cols = | else = ~
-2 = player = p
-3 = possible door, doors 1 = tl 2 = tr 3 = bl and 4 = br
-"""
+
 
 def makingboard():
     height, width = 10, 10
     cords = x, y = 0, 0
     board = []
-    for x in range(height):
+    while (x <= height):
         board += []
-        for y in range(width):
+        while (y <= width):
+            rand = r.randint(1,2)
             if x == 0 or x == 10:
-                board[cords] == 1
+                board[x, y] == 3
+            elif (y == 0 or y == 10):
+                if (x == 1):
+                    board[x, y] = rand
+                    board[x+1, y] = rand
+                elif (x == 9):
+                    board[x, y] = rand
+                    board[x-1, y] = rand
+                else:
+                    board[x, y] = 1
             else:
-                board[cords] = 0
+                board[x, y] = 0
+            y += 1
+        x += 1
 
 def printboard(board):
     word = ""
