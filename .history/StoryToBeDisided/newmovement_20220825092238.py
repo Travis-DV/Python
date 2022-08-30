@@ -1,6 +1,11 @@
 import random as r
 
-
+"""
+0 = empty = "  "
+1 = wall = if at 0 or max cols = | else = ~
+2 = player = p
+3 = possible door, doors 1 = tl 2 = tr 3 = bl and 4 = br
+"""
 
 def makingboard():
     height, width = 10, 10
@@ -33,12 +38,6 @@ def isdoor(doors):
         board[10][10] = 4
         board[11][10] = 4
 
-"""
-0 = empty = "  "
-1 = wall = if at 0 or max cols = | else = ~
-2 = player = p
-3 = possible door, doors 1 = tl 2 = tr 3 = bl and 4 = br
-"""
 
 def printboard(board):
     word = ""
@@ -47,17 +46,13 @@ def printboard(board):
             if board[x, y] == 0:
                 word += "  "
             elif board[x, y] == 1:
-                if x == 0 or x == 10:
-                    word += "|"
-                else:
-                    word += "~"
-            elif board[x, y] == 4:
-                word += "#"
+                word += "|"
+            elif board[x, y] == 3:
+                word += "~~"
             elif board[x, y] == 2:
-                word += "P"
+                word += "#"
         word += "\n"
     print(word)
 
 board = makingboard()
-isdoor([True, True, True, True])
 printboard(board)

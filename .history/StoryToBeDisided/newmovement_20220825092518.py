@@ -47,17 +47,13 @@ def printboard(board):
             if board[x, y] == 0:
                 word += "  "
             elif board[x, y] == 1:
-                if x == 0 or x == 10:
-                    word += "|"
-                else:
-                    word += "~"
-            elif board[x, y] == 4:
-                word += "#"
+                word += "|"
+            elif board[x, y] == 3:
+                word += "~~"
             elif board[x, y] == 2:
-                word += "P"
+                word += "#"
         word += "\n"
     print(word)
 
 board = makingboard()
-isdoor([True, True, True, True])
 printboard(board)
