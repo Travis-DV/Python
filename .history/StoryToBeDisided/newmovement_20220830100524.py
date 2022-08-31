@@ -10,9 +10,9 @@ def makingboard():
         board += []
         for y in range(width):
             if x == 0 or x == 10:
-                board[-1][-1] == 1
+                board[x, y] == 1
             else:
-                board[-1][-1] = 0
+                board[x, y] = 0
 
 """
 4 = is door = #
