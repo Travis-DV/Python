@@ -24,6 +24,7 @@ class player:
             temp = r.choice(normalstuff["special"])
             newcard.addnumber(False, normalnumber=temp[0])
         self.points += temp[1]
+        print(temp[1])
         #FLIP
         flipstuff = {"colors": ["purple", "teal", "orange", "pink", "purple", "teal", "orange", "pink", "special"], "numbers": [["0", 0],["1", 1],["2",1],["3",3],["4",4],["5",5],["6",6],["7",7],["8",8],["9",9]], "special": [["wild", 30], ["+2 wild", 30], ["+5", 60], ["skip all", 20], ["flip", 60], ["draw to color", 40], ["skip", 20], ["reverce", 20]]}
         newcard.addcolor(True, flipcolor=r.choice(flipstuff["colors"]))
@@ -33,7 +34,8 @@ class player:
         elif newcard.colors[1] == "special":
             temp = r.choice(flipstuff["special"])
             newcard.addnumber(True, flipnumber=temp[0])
-        self.points += temp[1]
+        self.points = temp[1]
+        print(temp[1])
         self.cards.append(newcard)
 
 class card:
@@ -74,12 +76,8 @@ def makeplayers():
         players.append(player())
     return players
 
-def filloutcards(players):
-    for player in players:
-        for i in range(7):
-            player.addcard()
-    return players
-
 players = makeplayers()
-players = filloutcards(players)
-print(len(players[0].cards))
+players[0].addcard()
+players[0].cards[-1].printstuff()
+print(players[0].points)
+#print(players[0])

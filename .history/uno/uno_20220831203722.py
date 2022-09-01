@@ -77,9 +77,8 @@ def makeplayers():
 def filloutcards(players):
     for player in players:
         for i in range(7):
-            player.addcard()
+            player.append(player.addcard())
     return players
 
 players = makeplayers()
-players = filloutcards(players)
-print(len(players[0].cards))
+players = filloutcards()

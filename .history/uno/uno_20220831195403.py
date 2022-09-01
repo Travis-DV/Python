@@ -1,6 +1,5 @@
 #MOVE THIS INTO .NET AT HOME
 import random as r
-from unittest import TestProgram
 
 class player:
 
@@ -14,27 +13,24 @@ class player:
 
     def addcard(self):
         #NORMAL
-        normalstuff = {"colors": ["red", "blue", "green", "yellow", "red", "blue", "green", "yellow", "special"], "numbers": [["0", 0],["1", 1],["2",1],["3",3],["4",4],["5",5],["6",6],["7",7],["8",8],["9",9]], "special": [["wild", 30], ["+4 wild", 50], ["flip", 60], ["+1", 10], ["skip", 20], ["reverce", 20]]}
+        normalstuff = {"colors": ["red", "blue", "green", "yellow", "red", "blue", "green", "yellow", "special"], "numbers": "0,1,2,3,4,5,6,7,8,9".split(",") + ["skip", "reverse", "+2"], "special": ["wild", "+4 wild", "flip", "+1", "skip", "reverce"], "points": [0,1,2,3,4,5,6,7,8,9,30,50,20,10,20,20]}
         newcard = card()
         newcard.addcolor(False, normalcolor=r.choice(normalstuff["colors"]))
         if newcard.colors[0] != "special":
-            temp = r.choice(normalstuff["numbers"])
-            newcard.addnumber(False, normalnumber=temp[0])
+            newcard.addnumber(False, normalnumber=r.choice(normalstuff["numbers"]))
         elif newcard.colors[0] == "special":
-            temp = r.choice(normalstuff["special"])
-            newcard.addnumber(False, normalnumber=temp[0])
-        self.points += temp[1]
+            newcard.addnumber(False, normalnumber=r.choice(normalstuff["wilds"]))
         #FLIP
-        flipstuff = {"colors": ["purple", "teal", "orange", "pink", "purple", "teal", "orange", "pink", "special"], "numbers": [["0", 0],["1", 1],["2",1],["3",3],["4",4],["5",5],["6",6],["7",7],["8",8],["9",9]], "special": [["wild", 30], ["+2 wild", 30], ["+5", 60], ["skip all", 20], ["flip", 60], ["draw to color", 40], ["skip", 20], ["reverce", 20]]}
+        flipstuff = {"colors": ["purple", "teal", "orange", "pink", "purple", "teal", "orange", "pink", "special"], "numbers": "0,1,2,3,4,5,6,7,8,9".split(",") + ["wild", "+2 wild", "+5", "skip all", "flip", "draw to color", "skip", "reverce"], "points": [0,1,2,3,4,5,6,7,8,9,50,20,20,30,20,60,20,20]}
         newcard.addcolor(True, flipcolor=r.choice(flipstuff["colors"]))
         if newcard.colors[1] != "special":
-            temp = r.choice(flipstuff["numbers"])
-            newcard.addnumber(True, flipnumber=temp[0])
+            newcard.addnumber(True, flipnumber=r.choice(flipstuff["numbers"]))
         elif newcard.colors[1] == "special":
-            temp = r.choice(flipstuff["special"])
-            newcard.addnumber(True, flipnumber=temp[0])
-        self.points += temp[1]
+            newcard.addnumber(True, flipnumber=r.choice(flipstuff["wilds"]))
         self.cards.append(newcard)
+        #points
+        self.points += normalstuff["points"][normalstuff["colors"].index(newcard.colors[0])] + flipstuff["points"][flipstuff["colors"].index(newcard.colors[1])]
+        print(f"{normalstuff["points"][normalstuff["colors"].index(newcard.colors[0])]}, flipstuff["points"][flipstuff["colors"].index(newcard.colors[1])")
 
 class card:
 
@@ -74,12 +70,7 @@ def makeplayers():
         players.append(player())
     return players
 
-def filloutcards(players):
-    for player in players:
-        for i in range(7):
-            player.addcard()
-    return players
-
 players = makeplayers()
-players = filloutcards(players)
-print(len(players[0].cards))
+players[0].addcard()
+players[0].cards[-1].printstuff()
+#print(players[0])

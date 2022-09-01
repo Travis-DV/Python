@@ -82,4 +82,4 @@ def filloutcards(players):
 
 players = makeplayers()
 players = filloutcards(players)
-print(len(players[0].cards))
+print(len(players[0]))
