@@ -88,8 +88,6 @@ class gamelogic():
         self.players = [player()]
         self.makeplayers()
         self.discardpile = discardpile()
-        self.currentplayer = 0
-        self.isreversed = False
 
     def isint(self, string):
         try: return int(string)
@@ -109,16 +107,10 @@ class gamelogic():
             self.players.append(AI())
         return self.players
 
-    def throwcard(self):
-        self.players[self.currentplayer].throwcard()
-
 class AI(player):
 
     def __init__(self):
         self.name = r.choice(["Olivia", "Emma", "Charlotte", "Amelia", "Ava", "Sophia", "Isabella", "Mia", "Evelyn", "Harper", "Luna", "Camila", "Gianna", "Elizabeth", "Eleanor", "Ella", "Abigail", "Sofia", "Avery", "Scarlett", "Liam", "Noah", "Oliver", "Elijah", "James", "William", "Benjamin", "Lucas", "Henry", "Theodore", "Jack", "Levi", "Alexander", "Jackson", "Mateo", "Daniel", "Michael", "Mason", "Sebastian", "Ethan"])
-
-    def throwcard(self):
-        pass
 
 
 

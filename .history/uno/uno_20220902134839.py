@@ -1,5 +1,4 @@
 #MOVE THIS INTO .NET AT HOME
-from dis import dis
 import random as r
 
 class player:
@@ -65,61 +64,44 @@ class card:
 class discardpile(player):
 
     def __init__(self):
-        self.cards = card()
+        self.topcard = card()
 
     def getstartingcard(self):
         while True:
-            self.cards = self.addcard()
-            if not "special" in self.cards.colors:
+            self.newcard = player.addcard()
+            if not "special" in self.newcard.colors:
                 break
 
     def isitelegable(self, card, isfliped):
-        if isfliped and (card.colors[1] == self.cards.colors[1] or card.colors[1] == "special" or card.number[1] == self.cards.number[1]): return True
-        elif not isfliped and (card.colors[0] == self.cards[0] or card.colors[0] == "special" or card.number[0] == self.cards.number[0]): return True
+        if isfliped and (card.colors[1] == self.newcard.colors[1] or card.colors[1] == "special" or card.number[1] == self.newcard.number[1]): return True
+        elif not isfliped and (card.colors[0] == self.newcard[0] or card.colors[0] == "special" or card.number[0] == self.newcard.number[0]): return True
         else: return False
 
     def replacecard(self, newcard, isfliped):
         if self.isitelegable(newcard, isfliped):
-            self.cards = newcard
+            self.topcard = newcard
 
-class gamelogic():
+class gamelogic:
 
     def __init__(self):
-        self.players = [player()]
+        self.players = []
         self.makeplayers()
-        self.discardpile = discardpile()
-        self.currentplayer = 0
-        self.isreversed = False
 
-    def isint(self, string):
+    def isint(string):
         try: return int(string)
         except: return -1
 
     def getamountofplayers(self):
         amountofplayers = self.isint(input("How many players do you want to have? (max 4)\n"))
-        self.players[0].name = input("What is your name?\n")
         while True:
             if amountofplayers > 1 and amountofplayers < 5:
-                return amountofplayers - 1
+                return amountofplayers
             amountofplayers = self.isint(input("Please input a number between 2 and 4\n"))
 
     def makeplayers(self):
         amountofplayers = self.getamountofplayers()
         for x in range(amountofplayers):
-            self.players.append(AI())
-        return self.players
-
-    def throwcard(self):
-        self.players[self.currentplayer].throwcard()
-
-class AI(player):
-
-    def __init__(self):
-        self.name = r.choice(["Olivia", "Emma", "Charlotte", "Amelia", "Ava", "Sophia", "Isabella", "Mia", "Evelyn", "Harper", "Luna", "Camila", "Gianna", "Elizabeth", "Eleanor", "Ella", "Abigail", "Sofia", "Avery", "Scarlett", "Liam", "Noah", "Oliver", "Elijah", "James", "William", "Benjamin", "Lucas", "Henry", "Theodore", "Jack", "Levi", "Alexander", "Jackson", "Mateo", "Daniel", "Michael", "Mason", "Sebastian", "Ethan"])
-
-    def throwcard(self):
-        pass
-
-
+            players.append(player())
+        return players
 
 game = gamelogic()
