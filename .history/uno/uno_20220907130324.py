@@ -97,7 +97,7 @@ class gamelogic():
         self.players = [player()]
         self.makeplayers()
         self.discardpile = discardpile()
-        self.currentplayer = self.players[0]
+        self.currentplayer = 0
         self.isreversed = False
         self.color = []
 
@@ -138,8 +138,10 @@ class AI(player):
         for card in self.cards:
             if self.isitelegable(card, isfliped):
                 clearedcards.append(card)
+        [player for self.cards[0], self.cards[1] in sorted(zip(self.card[1], self.cards[0]), key=lambda pair: pair[0])]
         keydict = dict(zip(self.cards[0], self.card[1]))
         self.cards.sort(key=keydict.get)
+        pass
 
 
 

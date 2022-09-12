@@ -1,4 +1,5 @@
-#MOVE THIS INTO .NET AT HOMEs
+#MOVE THIS INTO .NET AT HOME
+from dis import dis
 import random as r
 
 class player:
@@ -97,7 +98,7 @@ class gamelogic():
         self.players = [player()]
         self.makeplayers()
         self.discardpile = discardpile()
-        self.currentplayer = self.players[0]
+        self.currentplayer = 0
         self.isreversed = False
         self.color = []
 
@@ -127,6 +128,11 @@ class AI(player):
     def __init__(self):
         self.name = r.choice(["Olivia", "Emma", "Charlotte", "Amelia", "Ava", "Sophia", "Isabella", "Mia", "Evelyn", "Harper", "Luna", "Camila", "Gianna", "Elizabeth", "Eleanor", "Ella", "Abigail", "Sofia", "Avery", "Scarlett", "Liam", "Noah", "Oliver", "Elijah", "James", "William", "Benjamin", "Lucas", "Henry", "Theodore", "Jack", "Levi", "Alexander", "Jackson", "Mateo", "Daniel", "Michael", "Mason", "Sebastian", "Ethan"])
 
+    def flipcards(self, cards):
+        for card in cards:
+            card[0], card[1] = card[1], card[0]
+        return cards
+
     def makeanger(self, players):
         self.anger = []
         for player in players:
@@ -138,8 +144,8 @@ class AI(player):
         for card in self.cards:
             if self.isitelegable(card, isfliped):
                 clearedcards.append(card)
-        keydict = dict(zip(self.cards[0], self.card[1]))
-        self.cards.sort(key=keydict.get)
+        [player for self.cards[0], self.cards[1] in sorted(zip(self.card[1], self.cards[0]), key=lambda pair: pair[0])]
+        pass
 
 
 

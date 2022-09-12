@@ -1,16 +1,17 @@
-#MOVE THIS INTO .NET AT HOMEs
-import random as r
+#//MOVE THIS INTO .NET AT HOMEs
+using system;
 
-class player:
+class player
+{
 
-    def __init__(self):
+    private card cards = [];
+    private string name = "";
+    private int points = 0;
+    private bool onuno = False;
 
-        self.cards = []
-        self.name = ""
-        self.points = 0
-        self.onuno = False
-        self.filloutcards()
-        #return self
+    
+    this.filloutcards()
+    #return self
 
     def addcard(self):
         #NORMAL
@@ -54,6 +55,9 @@ class player:
         if isfliped and (card.colors[1] == self.cards.colors[1] or card.colors[1] == "special" or card.number[1] == self.cards.number[1]): return True
         elif not isfliped and (card.colors[0] == self.cards[0] or card.colors[0] == "special" or card.number[0] == self.cards.number[0]): return True
         else: return False
+}
+
+    
 
 class card:
 

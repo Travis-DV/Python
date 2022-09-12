@@ -1,4 +1,5 @@
-#MOVE THIS INTO .NET AT HOMEs
+#MOVE THIS INTO .NET AT HOME
+from dis import dis
 import random as r
 
 class player:
@@ -97,7 +98,7 @@ class gamelogic():
         self.players = [player()]
         self.makeplayers()
         self.discardpile = discardpile()
-        self.currentplayer = self.players[0]
+        self.currentplayer = 0
         self.isreversed = False
         self.color = []
 
@@ -133,13 +134,13 @@ class AI(player):
             if player.name != self.name:
                 self.anger.append([player, 0])
 
-    def throwcard(self, isfliped, nextplayer):
+    def throwcard(self, isfliped):
         clearedcards = []
         for card in self.cards:
             if self.isitelegable(card, isfliped):
                 clearedcards.append(card)
-        keydict = dict(zip(self.cards[0], self.card[1]))
-        self.cards.sort(key=keydict.get)
+        [player for player.cards[0],player.cards[1] in sorted(zip(, X), key=lambda pair: pair[0])]
+        pass
 
 
 

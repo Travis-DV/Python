@@ -1,4 +1,5 @@
-#MOVE THIS INTO .NET AT HOMEs
+#MOVE THIS INTO .NET AT HOME
+from dis import dis
 import random as r
 
 class player:
@@ -14,7 +15,7 @@ class player:
 
     def addcard(self):
         #NORMAL
-        normalstuff = {"colors": ["red", "blue", "green", "yellow", "red", "blue", "green", "yellow", "special"], "numbers": [["0", 0],["1", 1],["2",1],["3",3],["4",4],["5",5],["6",6],["7",7],["8",8],["9",9], ["flip", 45], ["+1", 15], ["skip", 30], ["reverce", 20]], "special": [["wild", 30], ["+4 wild", 50]]}
+        normalstuff = {"colors": ["red", "blue", "green", "yellow", "red", "blue", "green", "yellow", "special"], "numbers": [["0", 0],["1", 1],["2",1],["3",3],["4",4],["5",5],["6",6],["7",7],["8",8],["9",9], ["flip", 60], ["+1", 10], ["skip", 20], ["reverce", 20]], "special": [["wild", 30], ["+4 wild", 50]]}
         newcard = card()
         newcard.addcolor(False, normalcolor=r.choice(normalstuff["colors"]))
         if newcard.colors[0] != "special":
@@ -25,7 +26,7 @@ class player:
             newcard.addnumber(False, normalnumber=temp[0])
         self.points += temp[1]
         #FLIP
-        flipstuff = {"colors": ["purple", "teal", "orange", "pink", "purple", "teal", "orange", "pink", "special"], "numbers": [["0", 0],["1", 1],["2",1],["3",3],["4",4],["5",5],["6",6],["7",7],["8",8],["9",9],["+5", 60], ["skip all", 50], ["flip", 45], ["draw to color", 40], ["skip", 20], ["reverce", 20]], "special": [["wild", 30], ["+2 wild", 35]]}
+        flipstuff = {"colors": ["purple", "teal", "orange", "pink", "purple", "teal", "orange", "pink", "special"], "numbers": [["0", 0],["1", 1],["2",1],["3",3],["4",4],["5",5],["6",6],["7",7],["8",8],["9",9],["+5", 60], ["skip all", 20], ["flip", 60], ["draw to color", 40], ["skip", 20], ["reverce", 20]], "special": [["wild", 30], ["+2 wild", 30]]}
         newcard.addcolor(True, flipcolor=r.choice(flipstuff["colors"]))
         if newcard.colors[1] != "special":
             temp = r.choice(flipstuff["numbers"])
@@ -42,18 +43,9 @@ class player:
 
     def drawtomach(self, newcolor, isflipp) :
         newcards = []
-        while newcards == [] or (not isflipp and newcards[-1].color[0] != newcolor[0]) or (isflipp and newcards[-1].color[1] != newcolor[1]):
+        while newcards == [] or (not isflipp and newcards[-1].color[0] != newcolor[0]):
             newcards.append(card())
-        self.cards += newcards
 
-    def pluscards(self, numberofcards):
-        for x in range(numberofcards):
-            self.cards.append(card())
-
-    def isitelegable(self, card, isfliped):
-        if isfliped and (card.colors[1] == self.cards.colors[1] or card.colors[1] == "special" or card.number[1] == self.cards.number[1]): return True
-        elif not isfliped and (card.colors[0] == self.cards[0] or card.colors[0] == "special" or card.number[0] == self.cards.number[0]): return True
-        else: return False
 
 class card:
 
@@ -87,6 +79,11 @@ class discardpile(player):
             if not "special" in self.cards.colors:
                 break
 
+    def isitelegable(self, card, isfliped):
+        if isfliped and (card.colors[1] == self.cards.colors[1] or card.colors[1] == "special" or card.number[1] == self.cards.number[1]): return True
+        elif not isfliped and (card.colors[0] == self.cards[0] or card.colors[0] == "special" or card.number[0] == self.cards.number[0]): return True
+        else: return False
+
     def replacecard(self, newcard, isfliped):
         if self.isitelegable(newcard, isfliped):
             self.cards = newcard
@@ -97,9 +94,8 @@ class gamelogic():
         self.players = [player()]
         self.makeplayers()
         self.discardpile = discardpile()
-        self.currentplayer = self.players[0]
+        self.currentplayer = 0
         self.isreversed = False
-        self.color = []
 
     def isint(self, string):
         try: return int(string)
@@ -127,19 +123,8 @@ class AI(player):
     def __init__(self):
         self.name = r.choice(["Olivia", "Emma", "Charlotte", "Amelia", "Ava", "Sophia", "Isabella", "Mia", "Evelyn", "Harper", "Luna", "Camila", "Gianna", "Elizabeth", "Eleanor", "Ella", "Abigail", "Sofia", "Avery", "Scarlett", "Liam", "Noah", "Oliver", "Elijah", "James", "William", "Benjamin", "Lucas", "Henry", "Theodore", "Jack", "Levi", "Alexander", "Jackson", "Mateo", "Daniel", "Michael", "Mason", "Sebastian", "Ethan"])
 
-    def makeanger(self, players):
-        self.anger = []
-        for player in players:
-            if player.name != self.name:
-                self.anger.append([player, 0])
-
-    def throwcard(self, isfliped, nextplayer):
-        clearedcards = []
-        for card in self.cards:
-            if self.isitelegable(card, isfliped):
-                clearedcards.append(card)
-        keydict = dict(zip(self.cards[0], self.card[1]))
-        self.cards.sort(key=keydict.get)
+    def throwcard(self):
+        pass
 
 
 
