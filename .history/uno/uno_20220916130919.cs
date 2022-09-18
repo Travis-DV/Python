@@ -1,13 +1,11 @@
-using System;
-					
 //MOVE THIS INTO .NET AT HOMEs
 using System;
 using System.Collections.Generic;
 
 class card
 {
-	public string[] color = {"", ""};
-	public string[] number = {"", ""};
+	private string[] color = {"", ""};
+	private string[] number = {"", ""};
 	public void addcolor(string[] newcolor, string[] newnumber)
 	{
 		color = newcolor;
@@ -17,15 +15,11 @@ class card
 
 class player
 {
-	public List<card> deck;
-	public bool aicontroled;
-	public player(bool aicolorled)
+	private List<card> deck;
+	public player()
 	{
-		aicontroled = aicolorled;
+		
 	}
-	
-	public void readoutcards() {foreach (card c in deck) {Console.WriteLine($"{c.color[0]}, {c.number[0]}");}}
-	
 }
 
 class cardvalues
@@ -39,21 +33,19 @@ class cardvalues
 class gamelogic
 {
 	List<card> deck = new List<card>();
-	int startingcardnumber = 4;
-	List<player> players = new List<player>() {new player(false)};
+	int startingcardnumber;
+	List<player> players;
 	
 	public gamelogic()
 	{
 		for (int i = 0; i < cardvalues.colors[0, 0].Length; i++) { for (int j = 0; j < 2; j++) { for (int x = j; x < 12; x++) { deck.Add(new card()); string[] newcolors = new string[]{cardvalues.colors[0, i], ""}; string[] newnumbers = {cardvalues.numbers[0, x], ""}; deck[deck.Count - 1].addcolor(newcolors, newnumbers); } } }
-		for (int i = 0; i < startingcardnumber - 1; i++) {players.Add(new player(true));}
-		// pl.deck.Add(addcard); deck.Remove(addcard);  pl.readoutcards();
-		foreach (player pl in players) {for (int i = 0; i < 10; i++) {Random rnd = new Random(); card addcard = deck[rnd.Next(deck.Count)]; Console.WriteLine(pl);}}
+		foreach (player pl in players) {for (int i = 0; i < 10; i++) {Random rnd = new Random(); card addcard = deck[rnd.Next(deck.Count)];}}
 	}
 }
 
-public class main
+class main
 {
-	public static void Main()
+	static public void Main(String[] args)
 	{
 		gamelogic game = new gamelogic();
 		Console.WriteLine("reeee");
