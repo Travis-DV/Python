@@ -21,7 +21,7 @@ namespace uno
         private void button1_Click(object sender, EventArgs e)
         {
             gamelogic game = new gamelogic();
-            Console.WriteLine("reeee");
+            label1.Text = $"{game.players[0].readoutcards()}\n{game.players[1].readoutcards()}\n{game.players[2].readoutcards()}\n{game.players[3].readoutcards()}";
         }
     }
 
@@ -38,14 +38,16 @@ namespace uno
 
     class player
     {
-        public List<card> deck;
+        public List<card> deck = new List<card>();
         public bool aicontroled;
-        public player(bool aicolorled)
+        public string name;
+        public player(bool aicontroled, string name)
         {
-            aicontroled = aicolorled;
+            this.aicontroled = aicontroled;
+            this.name = name;
         }
 
-        public void readoutcards() { foreach (card c in deck) { Console.WriteLine($"{c.color[0]}, {c.number[0]}"); } }
+        public string readoutcards() { string word = ""; foreach (card c in deck) { word += $"({c.color[0]}, {c.number[0]}), "; } return word; }
 
     }
 
@@ -57,18 +59,19 @@ namespace uno
         public static int[,] pointsnumbers = { { 1, 2, 3, 4, 5, 6, 7, 8, 9, 12, 20, 25 } };
     }
 
-    class gamelogic
+    class gamelogic : Form1
     {
         List<card> deck = new List<card>();
         int startingcardnumber = 4;
-        List<player> players = new List<player>() { new player(false) };
+        public List<player> players = new List<player>() { new player(false, "noai") };
 
         public gamelogic()
         {
             for (int i = 0; i < cardvalues.colors[0, 0].Length; i++) { for (int j = 0; j < 2; j++) { for (int x = j; x < 12; x++) { deck.Add(new card()); string[] newcolors = new string[] { cardvalues.colors[0, i], "" }; string[] newnumbers = { cardvalues.numbers[0, x], "" }; deck[deck.Count - 1].addcolor(newcolors, newnumbers); } } }
-            for (int i = 0; i < startingcardnumber - 1; i++) { players.Add(new player(true)); }
+            for (int i = 0; i < startingcardnumber - 1; i++) { players.Add(new player(true, "yesai")); }
             // pl.deck.Add(addcard); deck.Remove(addcard);  pl.readoutcards();
-            foreach (player pl in players) { for (int i = 0; i < 10; i++) { Random rnd = new Random(); card addcard = deck[rnd.Next(deck.Count)]; label1.Text = pl; } }
+            for (int i = 0; i < players.Count; i++) { for (int j = 0; j < 10; j++) { Random rnd = new Random(); card addcard = deck[rnd.Next(deck.Count)]; players[i].deck.Add(addcard); this.deck.Remove(addcard); } }
+
         }
     }
 }
