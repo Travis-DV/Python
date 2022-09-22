@@ -29,11 +29,10 @@ namespace uno
     {
         public string[] color = { "", "" };
         public string[] number = { "", "" };
-        public int[] points = { -1, -1};
-        public void addcolor(string[] color, string[] number, int[] points)
+        public void addcolor(string[] newcolor, string[] newnumber)
         {
-            this.color = color;
-            this.number = number;
+            color = newcolor;
+            number = newnumber;
         }
     }
 
@@ -52,17 +51,13 @@ namespace uno
         
         public void sort(string type) 
         {
+            List<card> newlist = new List<card>();
             if (type == "color") 
             {
-                List<string> colors = new List<string>() {"red", "yellow", "green", "blue", "wild"};
-                List<List<card>> newlist = new List<List<card>>() {new List<card>(), new List<card>(), new List<card>(), new List<card>(), new List<card>()};
-                while (deck.Count > 0) { newlist[colors.IndexOf(deck[0].color[0])].Add(deck[0]); deck.RemoveAt(0);}
+                List<string> currentcolor = new List<string>() {"red", "yellow", "green", "blue", "wild"};
+                while (deck.Count > 0) {foreach (card c in deck) {bool passed = true; if (c.color[0] == currentcolor[0]) {passed = false; newlist.Add(c); deck.Remove(c);} if (passed) {currentcolor.Remove(currentcolor[0]);}}}
             }
-            else if (type == "points") 
-            {
-                bool passed = false;
-                while (!passed) {passed = true; for (int i = 1; i < deck.Count; i++) {if (deck[i].points[0] > deck[i-1].points[0]) { passed = false; deck[i].points[0] = deck[i-1].points[0]; } }}
-            }
+            else if (type == "points") {}
         }
 
     }
@@ -82,7 +77,7 @@ namespace uno
         public List<player> players = new List<player>() { new player(false, "noai") };
         public gamelogic()
         {
-            for (int i = 0; i < cardvalues.colors[0, 0].Length; i++) { for (int j = 0; j < 2; j++) { for (int x = j; x < 12; x++) { deck.Add(new card()); string[] newcolors = new string[] { cardvalues.colors[0, i], "" }; string[] newnumbers = { cardvalues.numbers[0, x], "" }; int[] newpoints = {cardvalues.pointsnumbers[0, x], -1}; deck[deck.Count-1].addcolor(newcolors, newnumbers, newpoints); } } }
+            for (int i = 0; i < cardvalues.colors[0, 0].Length; i++) { for (int j = 0; j < 2; j++) { for (int x = j; x < 12; x++) { deck.Add(new card()); string[] newcolors = new string[] { cardvalues.colors[0, i], "" }; string[] newnumbers = { cardvalues.numbers[0, x], "" }; deck[deck.Count - 1].addcolor(newcolors, newnumbers); } } }
             for (int i = 0; i < startingcardnumber - 1; i++) { players.Add(new player(true, "yesai")); }
             for (int i = 0; i < players.Count; i++) { for (int j = 0; j < 10; j++) { Random rnd = new Random(); card addcard = deck[rnd.Next(deck.Count)]; players[i].deck.Add(addcard); this.deck.Remove(addcard); } } 
         }
