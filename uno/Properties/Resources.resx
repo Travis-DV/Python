@@ -46,7 +46,7 @@
     
     mimetype: application/x-microsoft.net.object.binary.base64
     value   : The object must be serialized with 
-            : System.Serialization.Formatters.Binary.BinaryFormatter
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
             : and then encoded with base64 encoding.
     
     mimetype: application/x-microsoft.net.object.soap.base64
@@ -60,6 +60,7 @@
             : and then encoded with base64 encoding.
     -->
   <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
     <xsd:element name="root" msdata:IsDataSet="true">
       <xsd:complexType>
         <xsd:choice maxOccurs="unbounded">
@@ -68,9 +69,10 @@
               <xsd:sequence>
                 <xsd:element name="value" type="xsd:string" minOccurs="0" />
               </xsd:sequence>
-              <xsd:attribute name="name" type="xsd:string" />
+              <xsd:attribute name="name" use="required" type="xsd:string" />
               <xsd:attribute name="type" type="xsd:string" />
               <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
             </xsd:complexType>
           </xsd:element>
           <xsd:element name="assembly">
@@ -85,9 +87,10 @@
                 <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
                 <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
               </xsd:sequence>
-              <xsd:attribute name="name" type="xsd:string" msdata:Ordinal="1" />
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
               <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
               <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
             </xsd:complexType>
           </xsd:element>
           <xsd:element name="resheader">
@@ -109,9 +112,172 @@
     <value>2.0</value>
   </resheader>
   <resheader name="reader">
-    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <resheader name="writer">
-    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="green_7_large" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\uno_assets_2d\PNGs\large\green_7_large.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="green_4_large" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\uno_assets_2d\PNGs\large\green_4_large.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="red_reverse_large" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\uno_assets_2d\PNGs\large\red_reverse_large.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="green_3_large" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\uno_assets_2d\PNGs\large\green_3_large.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="blue_5_large" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\uno_assets_2d\PNGs\large\blue_5_large.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="red_skip_large" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\uno_assets_2d\PNGs\large\red_skip_large.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="green_+2_large" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\uno_assets_2d\PNGs\large\green_+2_large.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="green_9_large" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\uno_assets_2d\PNGs\large\green_9_large.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="yellow_9_large" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\uno_assets_2d\PNGs\large\yellow_9_large.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="yellow_+2_large" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\uno_assets_2d\PNGs\large\yellow_+2_large.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="green_5_large" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\uno_assets_2d\PNGs\large\green_5_large.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="blue_0_large" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\uno_assets_2d\PNGs\large\blue_0_large.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="red_9_large" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\uno_assets_2d\PNGs\large\red_9_large.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+    <data name="green_1_large" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\uno_assets_2d\PNGs\large\green_1_large.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="yellow_7_large" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\uno_assets_2d\PNGs\large\yellow_7_large.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="green_skip_large" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\uno_assets_2d\PNGs\large\green_skip_large.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="red_5_large" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\uno_assets_2d\PNGs\large\red_5_large.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="yellow_3_large" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\uno_assets_2d\PNGs\large\yellow_3_large.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="yellow_6_large" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\uno_assets_2d\PNGs\large\yellow_6_large.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="red_2_large" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\uno_assets_2d\PNGs\large\red_2_large.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="yellow_4_large" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\uno_assets_2d\PNGs\large\yellow_4_large.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="yellow_1_large" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\uno_assets_2d\PNGs\large\yellow_1_large.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="blue_6_large" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\uno_assets_2d\PNGs\large\blue_6_large.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="yellow_5_large" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\uno_assets_2d\PNGs\large\yellow_5_large.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="yellow_skip_large" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\uno_assets_2d\PNGs\large\yellow_skip_large.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="blue_1_large" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\uno_assets_2d\PNGs\large\blue_1_large.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="red_4_large" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\uno_assets_2d\PNGs\large\red_4_large.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="red_7_large" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\uno_assets_2d\PNGs\large\red_7_large.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="red_8_large" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\uno_assets_2d\PNGs\large\red_8_large.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="blue_skip_large" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\uno_assets_2d\PNGs\large\blue_skip_large.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="blue_+2_large" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\uno_assets_2d\PNGs\large\blue_+2_large.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="blue_8_large" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\uno_assets_2d\PNGs\large\blue_8_large.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="green_2_large" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\uno_assets_2d\PNGs\large\green_2_large.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="blue_reverse_large" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\uno_assets_2d\PNGs\large\blue_reverse_large.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="red_6_large" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\uno_assets_2d\PNGs\large\red_6_large.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="yellow_8_large" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\uno_assets_2d\PNGs\large\yellow_8_large.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="red_+2_large" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\uno_assets_2d\PNGs\large\red_+2_large.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="green_8_large" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\uno_assets_2d\PNGs\large\green_8_large.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="red_1_large" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\uno_assets_2d\PNGs\large\red_1_large.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="blue_9_large" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\uno_assets_2d\PNGs\large\blue_9_large.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="blue_2_large" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\uno_assets_2d\PNGs\large\blue_2_large.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="green_reverse_large" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\uno_assets_2d\PNGs\large\green_reverse_large.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="green_6_large" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\uno_assets_2d\PNGs\large\green_6_large.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="yellow_reverse_large" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\uno_assets_2d\PNGs\large\yellow_reverse_large.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="yellow_2_large" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\uno_assets_2d\PNGs\large\yellow_2_large.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="blue_7_large" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\uno_assets_2d\PNGs\large\blue_7_large.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="blue_4_large" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\uno_assets_2d\PNGs\large\blue_4_large.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="green_0_large" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\uno_assets_2d\PNGs\large\green_0_large.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="red_0_large" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\uno_assets_2d\PNGs\large\red_0_large.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="red_3_large" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\uno_assets_2d\PNGs\large\red_3_large.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="yellow_0_large" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\uno_assets_2d\PNGs\large\yellow_0_large.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="blue_3_large" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\uno_assets_2d\PNGs\large\blue_3_large.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="wild_wild_large" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\uno_assets_2d\PNGs\large\wild_wild_large.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="wild_+4_large" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\uno_assets_2d\PNGs\large\wild_+4_large.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
 </root>

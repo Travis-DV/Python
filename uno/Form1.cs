@@ -5,6 +5,7 @@ using System.Data;
 using System.Drawing;
 using System.Linq;
 using System.Reflection.Emit;
+using System.Security.Cryptography;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -18,10 +19,17 @@ namespace uno
             InitializeComponent();
         }
 
+        private gamelogic game = new gamelogic();
+
         private void button1_Click(object sender, EventArgs e)
         {
-            gamelogic game = new gamelogic();
-            label1.Text = $"{game.players[0].readoutcards()}\n{game.players[1].readoutcards()}\n{game.players[2].readoutcards()}\n{game.players[3].readoutcards()}";
+            
+            game.players[0].sort("color");
+            game.players[1].sort("points");
+            game.players[2].sort("color");
+            game.players[2].sort("points");
+            label1.Text = $"{game.players[0].readout("cards")}\n{game.players[1].readout("points")}\n{game.players[2].readout("cards")}\n{game.players[3].readout("cards")}";
+            pictureBox1.Image = Image.FromFile(Application.StartupPath + "\\" + game.players[0].deck[0].getname(false));
         }
     }
 
@@ -30,10 +38,18 @@ namespace uno
         public string[] color = { "", "" };
         public string[] number = { "", "" };
         public int[] points = { -1, -1};
+        public int[] index = { -1, -1};
         public void addcolor(string[] color, string[] number, int[] points)
         {
             this.color = color;
             this.number = number;
+            this.points = points;
+        }
+
+        public string getname(bool isflipped)
+        {
+            int i = Convert.ToInt32(isflipped);
+            return $"{color[i]}_{number[i]}_large.png";
         }
     }
 
@@ -48,7 +64,14 @@ namespace uno
             this.name = name;
         }
 
-        public string readoutcards() { string word = ""; foreach (card c in deck) { word += $"({c.color[0]}, {c.number[0]}), "; } return word; }
+        public string readout(string type) 
+        { 
+            string word = "";
+            if (type == "cards") { foreach (card c in deck) { word += $"({c.color[0]}, {c.number[0]}), "; } }
+            if (type == "points") { foreach (card c in deck) { word += $"({c.points[0]}), "; } }
+
+            return word; 
+        }
         
         public void sort(string type) 
         {
@@ -63,7 +86,7 @@ namespace uno
             {
                 List<card> newlist = deck;
                 bool passed = false;
-                while (!passed) {passed = true; for (int i = 1; i < deck.Count; i++) {if (newlist[i - 1].points[0] > newlist[i].points[0]) {passed = false; card temp = newlist[i-1]; newlist[i-1] = newlist[i]; newlist[i] = temp;}}}
+                while (!passed) {passed = true; for (int i = 1; i < deck.Count; i++) {if (newlist[i - 1].points[0] < newlist[i].points[0]) {passed = false; card temp = newlist[i-1]; newlist[i-1] = newlist[i]; newlist[i] = temp;}}}
             }
         }
 
@@ -85,9 +108,9 @@ namespace uno
         public gamelogic()
         {
             for (int i = 0; i < cardvalues.colors[0, 0].Length; i++) { for (int j = 0; j < 2; j++) { for (int x = j; x < 12; x++) { deck.Add(new card()); string[] newcolors = new string[] { cardvalues.colors[0, i], "" }; string[] newnumbers = { cardvalues.numbers[0, x], "" }; int[] newpoints = {cardvalues.points[0, x], -1}; deck[deck.Count-1].addcolor(newcolors, newnumbers, newpoints); } } }
-            for (int i = 0; i < cardvalues.wilds[0,0].Length; i++) {card newcard = new card(); string[] color = {"wild", "wild"}; string[] number = {cardvalues.wilds[0,i], ""}; int[] pooints = {cardvalues.points[3,i], -1}newcard.addcolor();}
+            for (int i = 0; i < 3; i++) {card newcard = new card(); string[] color = {"wild", "wild"}; string[] number = {cardvalues.wilds[0,i], ""}; int[] points = { cardvalues.points[2, i], -1 };  newcard.addcolor(color, number, points);}
             for (int i = 0; i < startingcardnumber - 1; i++) { players.Add(new player(true, "yesai")); }
-            for (int i = 0; i < players.Count; i++) { for (int j = 0; j < 10; j++) { Random rnd = new Random(); card addcard = deck[rnd.Next(deck.Count)]; players[i].deck.Add(addcard); this.deck.Remove(addcard); } } 
+            for (int i = 0; i < players.Count; i++) { for (int j = 0; j < 10; j++) { card addcard = deck[RandomNumber.Between(0, deck.Count)]; players[i].deck.Add(addcard); deck.Remove(addcard); } } 
         }
         
         private List<card>  drawtomatch(player pl, string[] color, bool fliped) 
@@ -101,6 +124,25 @@ namespace uno
                 newcard = deck[rnd.Next(deck.Count)];
             }
             return addlist;
+        }
+    }
+
+    public static class RandomNumber
+    {
+        private static readonly RNGCryptoServiceProvider _generator = new RNGCryptoServiceProvider();
+        public static int Between(int minimumValue, int maximumValue)
+        {
+            byte[] randomNumber = new byte[1];
+            _generator.GetBytes(randomNumber);
+            double asciiValueOfRandomCharacter = Convert.ToDouble(randomNumber[0]);
+            // We are using Math.Max, and substracting 0.00000000001, 
+            // to ensure "multiplier" will always be between 0.0 and .99999999999
+            // Otherwise, it's possible for it to be "1", which causes problems in our rounding.
+            double multiplier = Math.Max(0, (asciiValueOfRandomCharacter / 255d) - 0.00000000001d);
+            // We need to add one to the range, to allow for the rounding done with Math.Floor
+            int range = maximumValue - minimumValue;
+            double randomValueInRange = Math.Floor(multiplier * range);
+            return (int)(minimumValue + randomValueInRange);
         }
     }
 }
