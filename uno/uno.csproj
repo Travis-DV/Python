@@ -248,5 +248,167 @@
   <ItemGroup>
     <None Include="uno_assets_2d\PNGs\large\wild_+4_large.png" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Debug\large\blue_+2_large.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Debug\large\blue_0_large.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Debug\large\blue_1_large.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Debug\large\blue_2_large.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Debug\large\blue_3_large.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Debug\large\blue_4_large.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Debug\large\blue_5_large.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Debug\large\blue_6_large.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Debug\large\blue_7_large.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Debug\large\blue_8_large.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Debug\large\blue_9_large.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Debug\large\blue_reverse_large.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Debug\large\blue_skip_large.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Debug\large\green_+2_large.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Debug\large\green_0_large.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Debug\large\green_1_large.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Debug\large\green_2_large.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Debug\large\green_3_large.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Debug\large\green_4_large.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Debug\large\green_5_large.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Debug\large\green_6_large.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Debug\large\green_7_large.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Debug\large\green_8_large.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Debug\large\green_9_large.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Debug\large\green_reverse_large.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Debug\large\green_skip_large.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Debug\large\red_+2_large.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Debug\large\red_0_large.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Debug\large\red_1_large.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Debug\large\red_2_large.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Debug\large\red_3_large.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Debug\large\red_4_large.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Debug\large\red_5_large.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Debug\large\red_6_large.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Debug\large\red_7_large.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Debug\large\red_8_large.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Debug\large\red_9_large.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Debug\large\red_reverse_large.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Debug\large\red_skip_large.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Debug\large\wild_+4_large.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Debug\large\wild_wild_large.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Debug\large\yellow_+2_large.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Debug\large\yellow_0_large.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Debug\large\yellow_1_large.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Debug\large\yellow_2_large.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Debug\large\yellow_3_large.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Debug\large\yellow_4_large.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Debug\large\yellow_5_large.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Debug\large\yellow_6_large.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Debug\large\yellow_7_large.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Debug\large\yellow_8_large.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Debug\large\yellow_9_large.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Debug\large\yellow_reverse_large.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Debug\large\yellow_skip_large.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

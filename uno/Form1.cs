@@ -19,11 +19,9 @@ namespace uno
             InitializeComponent();
         }
 
-        private gamelogic game = new gamelogic();
-
         private void button1_Click(object sender, EventArgs e)
         {
-            
+            gamelogic game = new gamelogic();
             game.players[0].sort("color");
             game.players[1].sort("points");
             game.players[2].sort("color");
@@ -49,7 +47,7 @@ namespace uno
         public string getname(bool isflipped)
         {
             int i = Convert.ToInt32(isflipped);
-            return $"{color[i]}_{number[i]}_large.png";
+            return $"large//{color[i]}_{number[i]}_large.png";
         }
     }
 
