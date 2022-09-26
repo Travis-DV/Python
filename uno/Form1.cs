@@ -27,7 +27,8 @@ namespace uno
             game.players[2].sort("color");
             game.players[2].sort("points");
             label1.Text = $"{game.players[0].readout("cards")}\n{game.players[1].readout("points")}\n{game.players[2].readout("cards")}\n{game.players[3].readout("cards")}";
-            pictureBox1.Image = Image.FromFile(Application.StartupPath + "\\" + game.players[0].deck[0].getname(false));
+            game.players[0].deck[0].setimage(false);
+            pictureBox1 = game.players[0].deck[0].picture;
         }
     }
 
@@ -36,7 +37,8 @@ namespace uno
         public string[] color = { "", "" };
         public string[] number = { "", "" };
         public int[] points = { -1, -1};
-        public int[] index = { -1, -1};
+        public PictureBox picture = new PictureBox();
+
         public void addcolor(string[] color, string[] number, int[] points)
         {
             this.color = color;
@@ -49,6 +51,11 @@ namespace uno
             int i = Convert.ToInt32(isflipped);
             return $"large//{color[i]}_{number[i]}_large.png";
         }
+
+        public void setimage(bool isflipped)
+        {
+            picture.Image = Image.FromFile(Application.StartupPath + "\\" + this.getname(false));
+        }
     }
 
     class player
@@ -56,6 +63,8 @@ namespace uno
         public List<card> deck = new List<card>();
         public bool aicontroled;
         public string name;
+
+
         public player(bool aicontroled, string name)
         {
             this.aicontroled = aicontroled;
