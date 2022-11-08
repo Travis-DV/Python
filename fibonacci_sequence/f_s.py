@@ -4,6 +4,7 @@ class sequence:
     def __init__(self):
         self.sequence = [1, 1]
         self.intamount = self.findhowmany()
+        self.main()
         
     def runnext(self):
         self.sequence.append(self.sequence[-2] + self.sequence[-1])
