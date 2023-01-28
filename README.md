@@ -1,33 +1,26 @@
 # Python
- This where my python scripts go
+## I will place my python scripts that do not fit anywhere else.
+#### If there is a folder than I redid that project and kept the old version
 
-1: random story template, Idk what story I want to make yet but there is a template for one to exist. 
-
-2: a Fibonacci Sequence solver that I made because I was board and thought that it would be funny. 
-
-def apple_fall():
-    global proper_list, index2
-    #index2 = 0
-    current_apple = proper_list[index2]
-    proper_list.remove(current_apple)
-    current_apple["turtle"].setheading(270)
-    current_apple["turtle"].clear()
-    current_apple["turtle"].goto(current_apple["turtle"].xcor(),-150)
-    current_apple["turtle"].hideturtle()
-    print(current_apple["letter"])
-    proper_list = five_showing(5, proper_list, letters)
-    
-index2 = 0
-def letterlisten():
-    global index2
-    wn.onkeypress(apple_fall, proper_list[0]["letter"])
-    index2 = 1
-    # wn.onkeypress(apple_fall(1), proper_list[1]["letter"])
-    index2 = 2
-    # wn.onkeypress(apple_fall(2), proper_list[2]["letter"])
-    index2 = 3
-    # wn.onkeypress(apple_fall(3), proper_list[3]["letter"])
-    index2 = 4
-    # wn.onkeypress(apple_fall(4), proper_list[4]["letter"])
-    index2 = 0
-    wn.listen()
+#### 1. Loading Screen,  
+   * This is a generic loading screen that is kinda jank
+#### 2. Movement,
+   * The user can move up,down, left, or right on a grid
+#### 3. Number Guessing Game,
+   * User sets the range for a number then has to guess it being told higher or lower.
+### 4. Random Number Generator,  
+   * The user inputs an amount of digets and then the computer generates a number that size
+#### 5. Amount Of Math Homework,
+   * Calculates the amount of math problems that I would have to do if I did homework. In Ms.Waltons style 
+#### 6. Coin Flip,
+   * Simple coin Flip
+#### 7. Daily Challenges,
+   * This is where I put a python file from when I was doing daily Challenges before I forgot to do it. 
+#### 8. DNA Sequencer,
+   * Ment to sequence DNA did not finish
+#### 9. Fibonacci sequence, 
+   * A Fibonacci Sequence solver that I made because I was board and thought that it would be funny. 
+#### 10. Rock Paper Scissors, 
+   * Play rock paper scissors against a computer
+#### 11. War Card Game, 
+   * The war card game played aginst its self
