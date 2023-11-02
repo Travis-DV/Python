@@ -4,7 +4,8 @@ class sequence:
     def __init__(self):
         self.sequence = [0, 1]
         self.intamount = self.findhowmany()
-        self.main()
+        self.actualyrun()
+        print(self.stringit())
         
     def runnext(self):
         self.sequence.append(self.sequence[-2] + self.sequence[-1])
@@ -27,11 +28,7 @@ class sequence:
         printsequence = f"{self.sequence[0]}"
         for int in ssequence:
             printsequence += f", {int}"
-        return printsequence
-
-    def main(self):
-        self.actualyrun()
-        print(self.stringit())
+        return printsequence  
 
 
 sf = sequence()
