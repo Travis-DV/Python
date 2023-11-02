@@ -7,6 +7,7 @@ def fibonacci(startnum="no"):
         while True:
             try:
                 intamount = int(user_input)
+                print("c")
                 break
             except Exception as e:
                 user_input = input(f"Numbers only please || {e}\n")
