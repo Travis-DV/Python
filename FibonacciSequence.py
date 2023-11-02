@@ -1,11 +1,13 @@
 
 class sequence:
 
-    def __init__(self):
+    def __init__(self, startnum="no"):
         self.sequence = [0, 1]
-        self.intamount = self.findhowmany()
+        if startnum != "no":
+            self.intamount = startnum
+        else:
+            self.intamount = self.findhowmany(startnum)
         self.actualyrun()
-        print(self.stringit())
         
     def runnext(self):
         self.sequence.append(self.sequence[-2] + self.sequence[-1])
@@ -32,3 +34,4 @@ class sequence:
 
 
 sf = sequence()
+print(sf.stringit)
