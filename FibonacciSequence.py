@@ -2,7 +2,7 @@
 class sequence:
 
     def __init__(self):
-        self.sequence = [1, 1]
+        self.sequence = [0, 1]
         self.intamount = self.findhowmany()
         self.main()
         
