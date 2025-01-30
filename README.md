@@ -24,3 +24,5 @@
    * Play rock paper scissors against a computer
 #### 11. War Card Game, 
    * The war card game played aginst its self
+#### 12. War Card Game, 
+   * Simple bubble sort script, I made it in a bio class because I was bord
