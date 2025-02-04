@@ -17,7 +17,7 @@
 #### 7. Daily Challenges,
    * This is where I put a python file from when I was doing daily Challenges before I forgot to do it. 
 #### 8. DNA Sequencer,
-   * Ment to sequence DNA did not finish
+   * Creates a random sequence of DNA based on user requested length, also creates a corresponding rna. 
 #### 9. Fibonacci sequence, 
    * A Fibonacci Sequence solver that I made because I was board and thought that it would be funny. 
 #### 10. Rock Paper Scissors, 
